@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="page-header container">
+    <br>
+    <div class="alert alert-warning" role="alert" style="background:#EEE3D5">This site is under construction.
+        Thanks for being lenient and suggestions are welcome!</div>
+  <h1>{% block title %}Posts{% endblock %}</h1>
+    {{content}}
+{% endblock %}
+    </div>
+
+{% block content %}
+<div class="container">
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <a class="post_list" href="{{ url_for('blog.page', url=post['url']) }}">{{ post['title'] }}</a>
+            <p class="font-italic">{{ post['excerpt'] }}</p>
+            <br>
+             <p class="about">     by Kenway on {{ post['created_time'] }}</p>
+            <hr>
+        </div>
+      </header>
+      <!--  <div class="container">
+      <p class="body">
+          {{ post['body'] }}
+        </div>-->
+    </article>
+    {% if not loop.last %}
+
+    {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}

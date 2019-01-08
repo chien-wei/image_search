@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    {{ post['body'] }}
+    <div class="about">by Kenway on {{ post['created_time'] }}
+        {# .strftime('%Y-%m-%d') #}
+    </div>
+    <hr>
+    <a type="button" class="btn" href="{{ url_for('blog.index') }}">Back to Posts</a>
+</div>
+{% endblock %}
